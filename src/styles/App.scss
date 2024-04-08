@@ -1,0 +1,483 @@
+@keyframes morph {
+    0%{ border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;}
+    50%{border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;}
+    100%{ border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;}
+}
+$blackColor : #161616;
+$lightGray : rgb(228, 227, 227);
+$blueSky : rgb(79, 120, 223);
+
+*{
+    box-sizing: border-box;
+    font-family:  Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    .App{
+       
+        header {
+            margin-top: 15px;
+            margin-bottom: 150px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 3%;
+            padding-right: 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h2{
+                font-weight: 800;
+            }
+            .navList{
+                width: 20%;
+                display: flex;
+                justify-content: space-between;
+                .navigation{
+                    font-size: 17px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    color: black;
+                }
+            }
+            
+        
+        }
+        main{
+            width:60%;
+            margin: auto;
+            .aboutMe{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+               
+                
+                margin: auto;
+                height: 500px;
+                .presentationWithImage{
+                    display: flex;
+                    justify-content: space-between;
+                    .textPresentation{
+                        width: 45%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        
+                        h1{
+                           
+                            font-weight: 1000;
+                            // word-break: break-all;
+                            // text-align: center;
+                            
+                        }
+                        p{
+                            font-weight: 400;
+                            color: gray;
+                        }
+
+                    }
+                    img{
+                        height:350px;
+                        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                        border: 5px solid black;
+                        animation:  morph 6s ease-in-out infinite;
+
+                        
+                    }
+                }
+
+                .stackAndTechnos{
+                    margin-top :100px; 
+                    margin-bottom :200px; 
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .stack{
+                        border-right: 2px solid rgb(79, 120, 223);
+                        padding-right: 5px;
+                        color: rgb(79, 120, 223);
+                        font-weight: bold;
+                    }
+                    .images{
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: nowrap;
+                        width: 80%;
+                       img{
+                        height:50px;
+                        
+
+                       }
+                        
+                    }
+                }
+            }
+            .myInfos{
+                
+                padding-top: 200px;
+                display: flex;
+                justify-content: space-between;
+                
+                max-height: 500px;
+                margin: auto;
+                .images{
+                    position: relative;
+                    #img1{
+                        height: 250px;
+                        border-radius: 10%;
+                    }
+                    #img2{
+                        background-color: #fff;
+                        padding: 10px;
+                        position: absolute;
+                        bottom: 0%;
+                        right: -1%;
+                        height: 70px;
+                        border-radius: 50%;
+                    }
+                }
+                .textAbout{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    p{
+                        overflow: hidden;
+                        color: rgb(154, 151, 151);
+                    }
+                    h4{
+                        margin: 0;
+                        color: rgb(79, 120, 223);
+                    }
+                    h2{
+                        margin: 0;
+                    }
+                }
+            }
+            #portfolio{
+                margin-top: 150px;
+                color: rgb(79,120,223);
+            }
+            #afterPortfolio{
+                font-weight: 900;
+                margin-bottom: 50px;
+                
+            }
+            #projectsList{
+                .project{
+                    cursor: pointer;
+                    display: flex;
+                    // border-right: 1px solid rgb(228, 227, 227);
+                    // border-bottom: 1px solid rgb(228, 227, 227);
+                    border-radius: 40px;
+                    padding: 10px;
+                    margin: auto;
+                    justify-content: space-between;
+                    box-shadow: 1px 1px rgb(221, 220, 220);
+                    img{
+                        width: 50%;
+                        transition: border-radius 1s;
+                        &:hover{
+                            border-bottom-left-radius: 10%;
+                            border-top-right-radius: 10%;
+                        }
+                    }
+                    .aboutProject{
+                        width: 40%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        h3{
+                            margin: 0;
+                        }
+                        .description{
+                            color:rgb(154, 151, 151); ;
+                        }
+                            .techs{
+                                display: flex;
+                                justify-content: space-evenly;
+                                .aTech  {
+                                    
+                                    &:hover{
+                                        color: $blueSky;
+                                    transition: color .3s ease;
+                                }}
+                            }
+                            .consult{
+                                display: flex;
+                                justify-content: space-evenly;
+                                .toConsult{
+                                    &:hover{
+                                        color :$blueSky;
+                                        transition: color .3s ease;
+                                        
+                                    }
+                                }
+                            }
+    
+                        
+                    }
+                }
+            }
+            #contact{
+                margin: auto;
+                margin-top: 150px;
+              
+                display: flex;
+                
+                flex-direction: column;
+                align-items: center;
+                h1{
+                    font-weight: 900;
+                }
+                form{
+                    height: 500px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    width: 100%;
+                    #FullNameContainer{
+                        width: 90%;
+                        background-color: rgb(247, 247, 247);
+                        margin: auto;
+                        padding: 10px;
+                        border-radius: 15px;
+                        border: 1px solid rgb(228, 227, 227);
+                        label{
+                            font-size: small;
+                            text-transform: uppercase;
+                            
+                        }
+                        input{
+                            width: 100%;
+                            height: 40px;
+                            background-color: transparent;
+                            border: none;
+                            &:focus-visible{
+                                outline: 0px;
+                            }
+                            &::placeholder{
+                                opacity: .5;
+                            }
+                        }
+                    }
+
+
+
+                    #selecionContainer{
+                        width: 90%;
+                        background-color: rgb(247, 247, 247);
+                        margin: auto;
+                        padding: 10px;
+                        border-radius: 15px;
+                        border: 1px solid rgb(228, 227, 227);
+                        label{
+                            font-size: small;
+                            text-transform: uppercase;
+                            
+                        }
+                        select{
+                            width: 100%;
+                            height: 40px;
+                            background-color: transparent;
+                            border: none;
+                            font-size: 17px;
+                            font-weight: bold;
+                            // appearance: none;
+                            &:focus-visible{
+                                outline: 0px;
+                            }
+                            &::placeholder{
+                                opacity: .5;
+                            }
+                            #remove{
+                                display: none;
+                            }
+                            
+                          
+                           
+                            
+
+                            
+                            
+                        }
+                        option{
+                            background-color: rgb(247, 247, 247);
+                            
+                           
+                            
+                        }
+                        option[selected]{
+                            color: red;
+                        }
+                    }
+
+
+
+                    #emailAndPhoneContainer{
+                        
+                        width: 90%;
+                        margin: auto;
+                        display: flex;
+                        justify-content: space-between;
+                        #emailConatainer{
+                            border: 1px solid rgb(228, 227, 227);
+                            width: 47%;
+                            background-color: rgb(247, 247, 247);
+                            padding: 10px;
+                            border-radius: 15px;
+                            label{
+                                font-size: small;
+                                text-transform: uppercase;
+                            }
+                            input{
+                                width: 100%;
+                                height: 40px;
+                                background-color: transparent;
+                                border: none;
+                                &:focus-visible{
+                                    outline: 0px;
+                                }
+                                &::placeholder{
+                                    opacity: .5;
+                                }
+                            }
+                            
+                        }
+                        #phoneContainer{
+                            border: 1px solid rgb(228, 227, 227);
+                            width: 47%;
+                            background-color: rgb(247, 247, 247);
+                            padding: 10px;
+                            border-radius: 15px;
+                            label{
+                                font-size: small;
+                                text-transform: uppercase;
+                            }
+                            input{
+                                width: 100%;
+                                height: 40px;
+                                background-color: transparent;
+                                border: none;
+                                &:focus-visible{
+                                    outline: 0px;
+                                }
+                                &::placeholder{
+                                    opacity: .5;
+                                }
+                            }
+                        }
+                    }
+                    #textAreaContainer{
+                        border: 1px solid rgb(228, 227, 227);
+                        width: 90%;
+                        
+                        padding: auto;
+                        margin: auto;
+                        border-radius: 15px;
+                       div{
+                        padding: 10px;
+                        label{
+                            font-size: small;
+                            text-transform: uppercase;
+                            
+                        }
+                        textarea{
+                            width: 100%;
+                            height :120px;
+                            border: none;
+                            &::placeholder{
+                                opacity: .5;
+                            }
+                            
+                        }
+                        textarea:focus{
+                            outline: none;
+                        }
+                       }
+                    }
+                    #btnContainer{
+                        margin: auto;
+                        width: 90%;
+                        background-color: transparent;
+                        #btn{
+                            width: 100%;
+                            background-color: $blackColor;
+                            color: #fff;
+                            border-radius: 15px;
+                            height: 40px;
+                            font-size:medium;
+                            cursor: pointer;
+                        }
+                    }
+                    
+                }
+
+            }
+        }
+        // Footer.scss
+
+.footer {
+    margin-top: 150px;
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0;
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .footer-left, .footer-right {
+      flex: 1;
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    .footer-right {
+      p {
+        margin: 5px 0;
+      }
+    }
+  }
+
+  .footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+    .hideModal{
+        display: none;
+    }
+    
+    .viewModal{
+        position: fixed;
+        text-align: center;
+        padding: 10px;
+        top : 5%;
+        left : calc((100% - 200px)/ 2);
+        background-color:rgba(5, 153, 40, 0.8);
+        width : 350px;
+        color :white;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 5px;
+        transition: width 5s ease;
+        
+        .icon{
+           font-size: 1.5em;
+           cursor: pointer;
+           
+        }
+       
+        
+    }
+    }
+    
+}
