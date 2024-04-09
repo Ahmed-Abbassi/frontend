@@ -1,5 +1,5 @@
 import React from 'react'
-import image from "../images/i.jpg"
+import image1 from "../images/i.jpg"
 import html from "../images/html.webp"
 import css from "../images/css.webp"
 import chakra from "../images/chakra.jpg"
@@ -17,7 +17,7 @@ function AboutMe() {
               
               <p>Hi i'm Ahmed Abbassi. A passionate Front-end React Developer based in Monastir Tunisia</p>
             </div>
-            <img src={image} alt='my Image'/>
+            <img src={image1} alt='my'/>
 
           </div>
           <div className='stackAndTechnos'>
@@ -25,14 +25,14 @@ function AboutMe() {
               Tech Stack
             </h4>
             <div className='images'>
-              <img src={html} />
-              <img src={css} />
-              <img src={chakra} />
-              <img src={sass} />
-              <img src={js}/>
-              <img src={react} />
-              <img src={node} />
-              <img src={express} />
+              <img alt='html' src={html} />
+              <img alt='css' src={css} />
+              <img alt='chakra' src={chakra} />
+              <img alt='sass' src={sass} />
+              <img alt='js' src={js}/>
+              <img alt='react' src={react} />
+              <img alt='node' src={node} />
+              <img alt='express' src={express} />
             </div>
           </div>
 

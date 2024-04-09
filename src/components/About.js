@@ -5,8 +5,8 @@ export default function About() {
   return (
     <div id='about' className='myInfos'>
           <div className='images'>
-            <img src={pcOnTable} id='img1' />
-            <img src={manPc} id='img2' />
+            <img src={pcOnTable} id='img1' alt='' />
+            <img src={manPc} id='img2' alt='' />
           
           </div>
           <div className='textAbout'>

@@ -6,9 +6,6 @@ import Header from './components/Header'
 import AboutMe from './components/AboutMe'
 import About from './components/About'
 import Project from './components/Project'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCircleCheck} from '@fortawesome/free-regular-svg-icons'
-import {faXmarkCircle} from '@fortawesome/free-regular-svg-icons'
 import Modal from './components/Modal'
 
 
@@ -27,7 +24,7 @@ function App() {
       },
       body : JSON.stringify(formData)
     }).then(response=>{
-      if(!response.status==200){
+      if(!response.status===200){
         throw new Error('Network response error')
       }
       setFormData({fullName: '', email: '', phone: '', service: '', message: ''})
