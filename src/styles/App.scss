@@ -6,15 +6,30 @@
 $blackColor : #161616;
 $lightGray : rgb(228, 227, 227);
 $blueSky : rgb(79, 120, 223);
+//break points
+$small-screen: 576px;
+$medium-screen: 768px;
+$large-screen: 992px;
+$extra-large-screen: 1200px;
+
+//use the mexin
+@mixin responsiveMixin($device-width){
+    @media screen and (max-width :$device-width){
+        @content
+    }
+}
+
 
 *{
+    
     box-sizing: border-box;
     font-family:  Helvetica, sans-serif;
     padding: 0px;
     margin: 0px;
     .App{
-       
+       width: 100%;
         header {
+            
             margin-top: 15px;
             margin-bottom: 150px;
             margin-left: auto;
@@ -26,9 +41,19 @@ $blueSky : rgb(79, 120, 223);
             align-items: center;
             h2{
                 font-weight: 800;
+                @media screen and (max-width :$medium-screen) {
+                    font-weight: 700;
+                    color: $blueSky;
+                }
             }
             .navList{
-                width: 20%;
+                @media screen and (max-width :$medium-screen) {
+                    width: 60%;
+                }
+                @media screen and (max-width :$large-screen) {
+                    width: 50%;
+                }
+                width: 25%;
                 display: flex;
                 justify-content: space-between;
                 .navigation{
@@ -42,20 +67,39 @@ $blueSky : rgb(79, 120, 223);
         
         }
         main{
-            width:60%;
+            width: 60%;
+            @media screen and (max-width: $large-screen) {
+                width: 80%;
+            }
+          
+
             margin: auto;
             .aboutMe{
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-               
+                
                 
                 margin: auto;
+                
                 height: 500px;
                 .presentationWithImage{
                     display: flex;
                     justify-content: space-between;
+                    @include responsiveMixin($medium-screen){
+                        padding: 10px;
+                        
+                        flex-direction: column-reverse;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
                     .textPresentation{
+                        @include responsiveMixin($medium-screen){
+                            
+                            width: 80%;
+                            margin-top: 15px;
+                            
+                        }
                         width: 45%;
                         display: flex;
                         flex-direction: column;
@@ -63,7 +107,13 @@ $blueSky : rgb(79, 120, 223);
                         justify-content: space-evenly;
                         
                         h1{
-                           
+                            @include responsiveMixin($medium-screen){
+                            
+                                font-weight: 600;
+                                font-size: 25px;
+                                margin-bottom: 20px;
+                                
+                            }
                             font-weight: 1000;
                             // word-break: break-all;
                             // text-align: center;
@@ -76,6 +126,10 @@ $blueSky : rgb(79, 120, 223);
 
                     }
                     img{
+                        @include responsiveMixin($medium-screen){
+                            height: 200px;
+                        }
+                        
                         height:350px;
                         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
                         border: 5px solid black;
@@ -89,13 +143,21 @@ $blueSky : rgb(79, 120, 223);
                     margin-top :100px; 
                     margin-bottom :200px; 
                     display: flex;
-                    justify-content: space-between;
                     align-items: center;
+                    @media screen and (max-width :$medium-screen) {
+                        flex-direction: column;
+                        
+                    }
                     .stack{
                         border-right: 2px solid rgb(79, 120, 223);
                         padding-right: 5px;
                         color: rgb(79, 120, 223);
                         font-weight: bold;
+                        @media screen and (max-width :$medium-screen) {
+                            margin-bottom: 10px;
+                            
+                        }
+                        
                     }
                     .images{
                         display: flex;
@@ -104,6 +166,12 @@ $blueSky : rgb(79, 120, 223);
                         width: 80%;
                        img{
                         height:50px;
+                        @media screen and (max-width : $medium-screen) {
+                            height: 20px;
+                        }
+                        @media screen and (max-width : $medium-screen) {
+                            height: 30px;
+                        }
                         
 
                        }
@@ -116,14 +184,23 @@ $blueSky : rgb(79, 120, 223);
                 padding-top: 200px;
                 display: flex;
                 justify-content: space-between;
-                
+                @media screen and (max-width :$medium-screen) {
+                    flex-direction: column;
+                    max-height:none ;
+                    align-items: center;
+                }
                 max-height: 500px;
                 margin: auto;
                 .images{
                     position: relative;
+                    @media screen and (max-width :$medium-screen) {
+                        display: flex;
+                        justify-content: center;
+                    }
                     #img1{
-                        height: 250px;
+                        width: 70%;
                         border-radius: 10%;
+                       
                     }
                     #img2{
                         background-color: #fff;
@@ -133,9 +210,15 @@ $blueSky : rgb(79, 120, 223);
                         right: -1%;
                         height: 70px;
                         border-radius: 50%;
+                        @media screen and (max-width :$medium-screen) {
+                            display: none;
+                        }
                     }
                 }
                 .textAbout{
+                    @media screen and (max-width :$medium-screen) {
+                        width: 70%;
+                    }
                     width: 50%;
                     display: flex;
                     flex-direction: column;
@@ -143,21 +226,31 @@ $blueSky : rgb(79, 120, 223);
                     p{
                         overflow: hidden;
                         color: rgb(154, 151, 151);
+                        @media screen and (max-width : $medium-screen) {
+                            font-size: 12px;
+                        }
                     }
                     h4{
-                        margin: 0;
+                        margin-top: 15px;
+                        margin-bottom: 10px;
                         color: rgb(79, 120, 223);
                     }
                     h2{
                         margin: 0;
+                        font-weight: 900;
+                            font-size: 17px;
                     }
                 }
             }
             #portfolio{
+                width: 80%;
+                margin: auto;
                 margin-top: 150px;
                 color: rgb(79,120,223);
             }
             #afterPortfolio{
+                width: 80%;
+                margin: auto;
                 font-weight: 900;
                 margin-bottom: 50px;
                 
@@ -166,14 +259,22 @@ $blueSky : rgb(79, 120, 223);
                 .project{
                     cursor: pointer;
                     display: flex;
+                    @media screen and (max-width : $medium-screen) {
+                        flex-direction: column;
+                        align-items: center;
+                        width: 80%;
+                    }
                     // border-right: 1px solid rgb(228, 227, 227);
                     // border-bottom: 1px solid rgb(228, 227, 227);
                     border-radius: 40px;
-                    padding: 10px;
+                    padding: 15px;
                     margin: auto;
                     justify-content: space-between;
                     box-shadow: 1px 1px rgb(221, 220, 220);
                     img{
+                        @media screen and (max-width : $medium-screen) {
+                            width: 100%;
+                        }
                         width: 50%;
                         transition: border-radius 1s;
                         &:hover{
@@ -182,15 +283,22 @@ $blueSky : rgb(79, 120, 223);
                         }
                     }
                     .aboutProject{
-                        width: 40%;
+                        margin-top: 10px;
+                        width: 90%;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-around;
                         h3{
-                            margin: 0;
+                            
+                            font-weight: 900;
+                            font-size: 17px;
                         }
                         .description{
-                            color:rgb(154, 151, 151); ;
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            color:rgb(154, 151, 151); 
+                            font-size: 13px;
+                            
                         }
                             .techs{
                                 display: flex;
@@ -221,6 +329,12 @@ $blueSky : rgb(79, 120, 223);
             #contact{
                 margin: auto;
                 margin-top: 150px;
+                width: 100%;
+                @include responsiveMixin($medium-screen){
+                            
+                    width: 100%;
+                    
+                }
               
                 display: flex;
                 
@@ -230,12 +344,71 @@ $blueSky : rgb(79, 120, 223);
                     font-weight: 900;
                 }
                 form{
-                    height: 500px;
+                    height: 600px;
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-around;
+                    justify-content: space-between;
                     width: 100%;
                     #FullNameContainer{
+                        width: 90%;
+                        background-color: rgb(247, 247, 247);
+                        margin: auto;
+                        padding: 10px;
+                        border-radius: 15px;
+                        border: 1px solid rgb(228, 227, 227);
+                        label{
+                            font-size: small;
+                            text-transform: uppercase;
+                            
+                        }
+                        input{
+                            width: 100%;
+                            height: 40px;
+                            background-color: transparent;
+                            border: none;
+                            &:focus-visible{
+                                outline: 0px;
+                            }
+                            &::placeholder{
+                                opacity: .5;
+                            }
+                        }
+                    }
+                    .emailConatainer{
+                        @media screen and (min-width:$medium-screen) {
+                            display: none;
+                           }
+                        
+                        width: 90%;
+                        background-color: rgb(247, 247, 247);
+                        margin: auto;
+                        padding: 10px;
+                        border-radius: 15px;
+                        border: 1px solid rgb(228, 227, 227);
+                        label{
+                            font-size: small;
+                            text-transform: uppercase;
+                            
+                        }
+                        input{
+                            width: 100%;
+                            height: 40px;
+                            background-color: transparent;
+                            border: none;
+                            &:focus-visible{
+                                outline: 0px;
+                            }
+                            &::placeholder{
+                                opacity: .5;
+                            }
+                        }
+                    }
+                    
+                    .phoneContainer{
+                        @media screen and (min-width:$medium-screen) {
+                            display: none;
+                           }
+                        
                         width: 90%;
                         background-color: rgb(247, 247, 247);
                         margin: auto;
@@ -314,12 +487,19 @@ $blueSky : rgb(79, 120, 223);
 
 
                     #emailAndPhoneContainer{
-                        
+                        @media screen and (max-width:$medium-screen) {
+                            display: none;
+                        }
                         width: 90%;
                         margin: auto;
                         display: flex;
                         justify-content: space-between;
-                        #emailConatainer{
+                     
+                        .emailConatainer1{
+                            
+                            @include responsiveMixin($medium-screen){
+                                width: 100%;
+                            }
                             border: 1px solid rgb(228, 227, 227);
                             width: 47%;
                             background-color: rgb(247, 247, 247);
@@ -343,7 +523,11 @@ $blueSky : rgb(79, 120, 223);
                             }
                             
                         }
-                        #phoneContainer{
+                        .phoneContainer2{
+                            
+                            @include responsiveMixin($medium-screen){
+                                width: 100%;
+                            }
                             border: 1px solid rgb(228, 227, 227);
                             width: 47%;
                             background-color: rgb(247, 247, 247);
@@ -417,10 +601,11 @@ $blueSky : rgb(79, 120, 223);
         // Footer.scss
 
 .footer {
+
     margin-top: 150px;
   background-color: #333;
   color: #fff;
-  padding: 30px 0;
+  padding: 10px 5px;
 
   .footer-inner {
     display: flex;
@@ -456,12 +641,12 @@ $blueSky : rgb(79, 120, 223);
         display: none;
     }
     
-    .viewModal{
+    #messageDialog1{
         position: fixed;
         text-align: center;
         padding: 10px;
         top : 5%;
-        left : calc((100% - 200px)/ 2);
+        left : calc((100% - 350px)/ 2);
         background-color:rgba(5, 153, 40, 0.8);
         width : 350px;
         color :white;
@@ -473,11 +658,25 @@ $blueSky : rgb(79, 120, 223);
         .icon{
            font-size: 1.5em;
            cursor: pointer;
-           
-        }
-       
-        
-    }
+           }}
+           #messageDialog2{
+            position: fixed;
+            text-align: center;
+            padding: 10px;
+            top : 5%;
+            left : calc((100% - 350px)/ 2);
+            background-color:rgba(111, 21, 5, 0.8);
+            width : 350px;
+            color :white;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 5px;
+            transition: width 5s ease;
+            
+            .icon{
+               font-size: 1.5em;
+               cursor: pointer;
+               }}
     }
     
 }

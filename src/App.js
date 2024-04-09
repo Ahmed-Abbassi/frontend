@@ -9,12 +9,14 @@ import Project from './components/Project'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCircleCheck} from '@fortawesome/free-regular-svg-icons'
 import {faXmarkCircle} from '@fortawesome/free-regular-svg-icons'
+import Modal from './components/Modal'
 
 
 
 function App() {
   const [formData , setFormData] =useState({fullName: '', email: '', phone: '', service: '', message: ''})
-  const [modalViewed , setModalViewed] = useState("hideModal")
+
+  const [modalType , setModalType] = useState("")
   const handleSubmit = (e)=>{
     
     e.preventDefault()
@@ -32,13 +34,20 @@ function App() {
       return response.json()
     }).then(data=>{
       console.log(data);
-      setModalViewed("viewModal")
+
+    setModalType("success")
     setTimeout(()=>{
-      setModalViewed("hideModal")
+      setModalType("")
     },5000)
       
     }).catch((e)=>{
       console.log(e);
+      
+      setModalType("fail")
+      setTimeout(()=>{
+        setModalType("")
+      },5000)
+      
     })
   }
   
@@ -62,7 +71,6 @@ function App() {
       <Header />
       <main>
         <AboutMe />
-
         <About />
         <h4 id='portfolio'>Portfolio</h4>
         <h4 id='afterPortfolio'>Each Project is a piece of developement</h4>
@@ -79,12 +87,21 @@ function App() {
               <label>Full Name *</label><br/>
               <input value={formData.fullName} placeholder='Enter Your Name' onChange={handleChange} type='text' name='fullName' required />
             </div>
-            <div id='emailAndPhoneContainer'>
-              <div id='emailConatainer'>
+            <div  className='emailConatainer'>
                 <label>Email *</label><br/>
                 <input value={formData.email} placeholder='Enter Your Email' onChange={handleChange} type='text' name='email' required />
               </div>
-              <div id='phoneContainer'>
+              <div className='phoneContainer'>
+                <label>Phone</label><br/>
+                <input value={formData.phone} placeholder='Enter Phone Number' onChange={handleChange} type='text' name='phone' />
+              </div>
+
+            <div id='emailAndPhoneContainer'>
+              <div className='emailConatainer1'>
+                <label>Email *</label><br/>
+                <input value={formData.email} placeholder='Enter Your Email' onChange={handleChange} type='text' name='email' required />
+              </div>
+              <div className='phoneContainer2'>
                 <label>Phone</label><br/>
                 <input value={formData.phone} placeholder='Enter Phone Number' onChange={handleChange} type='text' name='phone' />
               </div>
@@ -127,11 +144,12 @@ function App() {
         <p>&copy; Abbassi Ahmed. All rights reserved.</p>
       </div>
     </footer>
-  { <div id='messageDialog' className={modalViewed}>
-      <FontAwesomeIcon className='icon' icon={faCircleCheck} />
-      <p>Form submitted successfully</p>
-      <FontAwesomeIcon onClick={()=>{setModalViewed('hideModal')}} className='icon' icon={faXmarkCircle} />
-    </div>}
+  {modalType==="success" ? 
+    <Modal identifier={'messageDialog1'} stateChange={setModalType}>form submitted successfully</Modal>
+    :modalType==="fail" ? 
+    <Modal identifier={'messageDialog2'} stateChange={setModalType}>Error submitting form</Modal>
+    : <></>
+    }
       
     </div>
   );
