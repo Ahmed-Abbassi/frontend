@@ -46,7 +46,65 @@ $extra-large-screen: 1200px;
                     color: $blueSky;
                 }
             }
+            #drawer{
+                display: none;
+                @media screen and (max-width : $small-screen) {
+                
+                    display: block;
+                    cursor: pointer;
+                    &:hover{
+                        color : $blueSky,
+                    }
+                    
+                }
+
+            }
+            .drawerContent{z-index: 2;
+                width : 50%;
+                background-color :#eee;
+                opacity : 80%;
+                height :100%;
+                display :flex;
+                
+                position : fixed;
+                top : 0px;
+                right:-100%;
+                
+                padding-left : 10px;
+                .drawerLinks{
+                    display: flex;
+                    flex-direction: column;
+                    height: 40%;
+                    justify-content: space-around;
+                    // background: red;
+                    width: 100%;
+                    #drawerXIcon{
+                        border-color: red;
+                        width: fit-content;
+                    }
+                    .navigation{
+                        
+                        text-decoration: none;
+                        color: $blackColor;
+                        font-weight: bold;
+                        color : $blueSky;
+                        opacity: 9100%;
+                        
+                    }
+                }
+            }
+            .drawerVisible{
+                right: 0%;
+                transition: right .7s ease-out;
+            }
+            .drawerInvisible{
+                right: -50%;
+                transition: right .7s ease-out;
+            }
+
+
             .navList{
+                
                 @media screen and (max-width :$medium-screen) {
                     width: 60%;
                 }
@@ -55,6 +113,7 @@ $extra-large-screen: 1200px;
                 }
                 @media screen and (max-width :$small-screen) {
                     width: 50%;
+                    display: none;
                 }
                 width: 25%;
                 display: flex;
@@ -89,6 +148,27 @@ $extra-large-screen: 1200px;
         
         }
         main{
+            #scrollTop{
+                display: none;
+                @media screen and (max-width : $small-screen) {
+                    display: block;
+                    position: fixed;
+                    float: left;
+                    bottom: 25%;
+                    right: 5%;
+                    width: fit-content;
+                    border: 1px solid #eee;
+                    border-radius: 50%;
+                    background: #eee;
+                    opacity: 50%;
+                #icon{
+                    color: $blueSky;
+
+                }
+                }
+                
+
+            }
             width: 60%;
             @media screen and (max-width: $large-screen) {
                 width: 80%;
@@ -197,6 +277,10 @@ $extra-large-screen: 1200px;
                         width: 80%;
                        img{
                         height:40px;
+                        @media screen and (min-width : 100px) {
+                            height: 30px;
+                            
+                        }
                         @media screen and (min-width : $small-screen) {
                             height: 50px;
                         }
@@ -235,6 +319,7 @@ $extra-large-screen: 1200px;
                     #img1{
                         
                         @media screen and (max-width: $medium-screen) {
+                            z-index: 1;
                             width: 70%;
                         }
                         @media screen and (min-width: $medium-screen) {
@@ -478,7 +563,7 @@ $extra-large-screen: 1200px;
                         margin: auto;
                         padding: 10px;
                         border-radius: 15px;
-                        border: 1px solid rgb(228, 227, 227);
+                        border: 1px solid rgb(73, 30, 30);
                         label{
                             font-size: small;
                             text-transform: uppercase;

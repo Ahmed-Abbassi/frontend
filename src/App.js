@@ -1,19 +1,33 @@
 
 import './styles/App.scss'
 import chat from './images/chat.jpg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import AboutMe from './components/AboutMe'
 import About from './components/About'
 import Project from './components/Project'
 import Modal from './components/Modal'
 
-
-
+import {faCircleUp} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 function App() {
   const [formData , setFormData] =useState({fullName: '', email: '', phone: '', service: '', message: ''})
-
+  const [VisibleScrollButton, setVisibleScrollButton] = useState(false)
   const [modalType , setModalType] = useState("")
+
+
+
+
+  //functions
+
+  const goTop = function(){
+    window.scrollTo({
+      top : 0,
+      behavior : 'smooth'
+    })
+  }
+
+
   const handleSubmit = (e)=>{
     
     e.preventDefault()
@@ -60,13 +74,25 @@ function App() {
     }));
     console.log(formData);
   };
-  
+
+  useEffect(()=>{
+    const handleScroll = ()=>{
+      const isTop = window.scrollY ===0;
+      setVisibleScrollButton(!isTop)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    
+    return ()=> window.removeEventListener('scroll', handleScroll)
+  }, [])
+  console.log("hello");
 
 
   return (
     <div className="App">
       <Header />
       <main>
+        {VisibleScrollButton && <div onClick={goTop} id='scrollTop'><FontAwesomeIcon id='icon' size='lg' icon={faCircleUp} /></div>}
         <AboutMe />
         <About />
         <h4 id='portfolio'>Portfolio</h4>
