@@ -77,7 +77,7 @@ function App() {
 
   useEffect(()=>{
     const handleScroll = ()=>{
-      const isTop = window.scrollY ===0;
+      const isTop = window.scrollY < 500;
       setVisibleScrollButton(!isTop)
     }
 

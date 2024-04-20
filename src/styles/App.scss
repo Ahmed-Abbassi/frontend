@@ -287,6 +287,7 @@ $extra-large-screen: 1200px;
                         }
                         @media screen and (min-width : $large-screen) {
                             height: 60px;
+                            
                         }
                        
                         
@@ -564,7 +565,7 @@ $extra-large-screen: 1200px;
                         margin: auto;
                         padding: 10px;
                         border-radius: 15px;
-                        border: 1px solid rgb(73, 30, 30);
+                        border: 1px solid rgb(228, 227, 227);
                         label{
                             font-size: small;
                             text-transform: uppercase;
