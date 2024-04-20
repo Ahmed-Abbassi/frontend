@@ -25,7 +25,7 @@ function Header() {
         </h3>
         <div className={`drawerContent ${visible ? 'drawerVisible ': 'drawerInvisible'}`}>
           <div className='drawerLinks'>
-            <a  id='drawerXIcon'  onClick={hideDrawer}>
+            <a  id='drawerXIcon'href=''  onClick={hideDrawer}>
             <FontAwesomeIcon size='lg' icon={faXmark} />
             </a>
             
